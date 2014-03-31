@@ -1,0 +1,88 @@
+<?xml version="1.0"?>    
+<xs:schema attributeFormDefault="unqualified" 
+           elementFormDefault="qualified" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.revbayes.org/schema/help-entry" >
+    <xs:element name="revbayes-help">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="function-help-entry" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="name"/>
+                            <xs:element type="xs:string" name="title"/>
+                            <xs:element type="xs:string" name="description"/>
+                            <xs:element type="xs:string" name="usage"/>
+                            <xs:element name="argument" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="label"/>
+                                        <xs:element type="xs:string" name="description"/>
+                                        <xs:element type="xs:string" name="argumentType"/>
+                                        <xs:element type="xs:string" name="valueType"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="returnValue"/>
+                            <xs:element type="xs:string" name="details"/>
+                            <xs:element type="xs:string" name="author"/>
+                            <xs:element type="xs:string" name="example"/>
+                            <xs:element name="seeAlso">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="entry" maxOccurs="unbounded" minOccurs="0"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="type-help-entry" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="name"/>
+                            <xs:element type="xs:string" name="title"/>
+                            <xs:element type="xs:string" name="description"/>
+                            <xs:element name="memberMethod" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="methodName"/>
+                                        <xs:element type="xs:string" name="description"/>
+                                        <xs:element type="xs:string" name="usage"/>
+                                        <xs:element type="xs:string" name="methodType"/>
+                                        <xs:element name="argument" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="label"/>
+                                                    <xs:element type="xs:string" name="description"/>
+                                                    <xs:element type="xs:string" name="argumentType"/>
+                                                    <xs:element type="xs:string" name="valueType"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:string" name="returnValue"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="details">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="p" maxOccurs="unbounded" minOccurs="0"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="author"/>
+                            <xs:element name="reference" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="citation"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
