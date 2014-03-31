@@ -1,0 +1,75 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="revbayes-help">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="function-help-entry">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="name"/>
+                            <xs:element type="xs:string" name="title"/>
+                            <xs:element name="description">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="p">
+                                            <xs:annotation>
+                                                <xs:documentation>Use &lt;p> tags to separate paragraphs</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="usage"/>
+                            <xs:element name="argument" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:choice maxOccurs="unbounded" minOccurs="0">
+                                        <xs:element type="xs:string" name="label"/>
+                                        <xs:element type="xs:string" name="argumentType"/>
+                                        <xs:element type="xs:string" name="description"/>
+                                        <xs:element type="xs:string" name="valueType"/>
+                                        <xs:element type="xs:string" name="defaultValue"/>
+                                        <xs:element type="xs:string" name="option"/>
+                                    </xs:choice>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="returnValue"/>
+                            <xs:element name="details">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="p" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>Since this section can be lengthy, the text is sectioned with &lt;p> tags</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="author"/>
+                            <xs:element name="reference" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="citation"/>
+                                        <xs:element type="xs:anyURI" name="url"/>
+                                        <xs:element type="xs:string" name="doi"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="seeAlso">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="entry">
+                                            <xs:annotation>
+                                                <xs:documentation>The xslt page will try to auto generate links to the referred help entries, therefore
+                                                    only exact names of help items should be listed here (case sensitive)</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element type="xs:string" name="example"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
